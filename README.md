@@ -8,7 +8,7 @@ Show us what you've got by knocking it into shape!
 
 Please make a fork of this project for your work.
 
-Each commit you make should relate to a single task. A more complex task may have may commits; this is up to you.
+Each commit you make should relate to a single task. A more complex task may have many commits; this is up to you.
 
 The webapp runs on Windows, macOS, and Linux. It can be built using Visual Studio 2017, Visual Studio Code, or command line. On the command line: 
 

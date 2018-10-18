@@ -1,6 +1,6 @@
 # Storm ID Technical Test – A Todo-List Project
 
-This is a todo-list webapp written in C# using .NET Core.
+This is a todo-list webapp written in C# using [.NET Core 2.1](https://get.asp.net).
 
 Show us what you've got by knocking it into shape!
 

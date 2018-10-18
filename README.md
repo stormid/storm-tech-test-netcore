@@ -26,7 +26,7 @@ The app allows a user to create multiple todo-lists. Each list has a number of i
 
 ## Tasks
 
-Tasks are in ascending order of difficulty. Complete as many, or as few, tasks that you feel able to.
+Tasks are in ascending order of difficulty. Complete as many, or as few, tasks that you feel able to. Add unit tests if you can.
 
 | # | Description |
 |-|-|
@@ -39,4 +39,4 @@ Tasks are in ascending order of difficulty. Complete as many, or as few, tasks t
 | 8 | Add a `Rank` property to the `TodoItem` class. Add an EntityFramework migration to reflect this change. Allow a user to set the rank property on the edit page. Add a new option on the details page to order by rank. |
 | 9 | If the users you register have an avatar added to gravatar.com, then you will see that avatar by their email address in the navigation area and beside items in a list. Instead of just showing an email address to identify a user, make an enhancement that uses the gravatar.com API to download profile information (if any), and extract the user's name. Display the name along side the email address. Consider what would happen if the gravatar service was slow to respond or not working. |
 | 10 | The process of adding items to a list is pretty clunky; the user has to go to a new page, fill in a form, then go back to the list detail page. It would be easier for the user to do all that on the list detail page. Replace the "Add New Item" link with UI that allows creation of items without navigating away from the detail page. You will need to use Javascript and an API that you create. |
-| 11 | Add an API that allows setting of the `Rank` property (added in Task 5). Add Javascript functionality that allows reordering of list items by rank without navigating away from the detail page |
+| 11 | Add an API that allows setting of the `Rank` property (added in Task 8). Add Javascript functionality that allows reordering of list items by rank without navigating away from the detail page |

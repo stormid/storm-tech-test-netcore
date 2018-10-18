@@ -12,6 +12,7 @@ Each commit you make should relate to a single task. A more complex task may hav
 
 The webapp runs on Windows, macOS, and Linux. It can be built using Visual Studio 2017, Visual Studio Code, or command line. On the command line: 
 
+| What | How |
 |-|-|
 | build | `dotnet build` |
 | run unit tests | `dotnet test Todo.Tests` |
@@ -27,6 +28,7 @@ The app allows a user to create multiple todo-lists. Each list has a number of i
 
 Tasks are in ascending order of difficulty. Complete as many, or as few, tasks that you feel able to.
 
+| # | Description |
 |-|-|
 | 1 | Build and run the app. Register a user account, make some lists, add some items – have a play and get familiar with the app. |
 | 2 | When todo items are displayed in browser in the details page, they are listed in an arbitrary order. Change `Views/TodoList/Detail.cshtml` so that items are listed by order of importance: `High`, `Medium`, `Low` |

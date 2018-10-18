@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Todo.Data
+@using Todo.Data.Entities
+@using Todo.Views.TodoItem
+@model Todo.Models.TodoItems.TodoItemCreateFields
+
+@{
+    ViewData["Title"] = $"New Item in {Model.TodoListTitle}";
+}
+
+
+@inject ApplicationDbContext dbContext
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="col-md-4">
+    <section>
+        <form method="post">
+
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.TodoListTitle)
+
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Importance"></label>
+                @Html.DropDownListFor(
+                    m => m.Importance,
+                    SelectListConvenience.ImportanceSelectListItems,
+                    new {@class="form-control"}
+                    )
+                <span asp-validation-for="Importance" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ResponsiblePartyId"></label>
+                @Html.DropDownListFor(
+                    m => m.ResponsiblePartyId,
+                    dbContext.UserSelectListItems(),
+                    new {@class="form-control"}
+                    )
+                <span asp-validation-for="ResponsiblePartyId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Save</button>
+            </div>
+
+        </form>
+    </section>
+</div>

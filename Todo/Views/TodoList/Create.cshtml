@@ -1,0 +1,29 @@
+﻿@model Todo.Models.TodoLists.TodoListFields
+
+@{
+    ViewData["Title"] = "New List";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="col-md-4">
+    <section>
+        <form method="post">
+
+            @Html.AntiForgeryToken()
+
+
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control"/>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Save</button>
+            </div>
+
+        </form>
+    </section>
+</div>
+

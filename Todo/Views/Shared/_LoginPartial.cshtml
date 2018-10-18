@@ -1,0 +1,40 @@
+@using System.Security.Claims
+@using System.Text
+@using Microsoft.AspNetCore.Identity
+@using Todo.Controllers
+@using Todo.Services
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+
+                    @{
+
+                        var iu = await UserManager.GetUserAsync(User);
+                        var emailAddress = await UserManager.GetEmailAsync(iu);
+                        var gravatarhash = Gravatar.GetHash(emailAddress);
+                    }
+
+                    <img src="https://www.gravatar.com/avatar/@gravatarhash?s=30" />
+                    @UserManager.GetUserName(User)
+                </a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+            </li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+        <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+    </ul>
+}

@@ -1,0 +1,35 @@
+﻿@model Todo.Models.TodoLists.TodoListIndexViewmodel
+
+@{
+    ViewData["Title"] = "Lists";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="col-md-6">
+    <ul class="list-group">
+
+        <li class="list-group-item">
+            <a asp-action="Create">
+                <strong>Add New List</strong>
+            </a>
+        </li>
+
+        @foreach (var list in Model.Lists)
+        {
+            <li class="list-group-item">
+                @if (list.NumberOfNotDoneItems == 0)
+                {
+                    <s>
+                        <a asp-action="Detail" asp-route-todoListId="@list.TodoListId">@list.Title</a>
+                    </s>
+                }
+                else
+                {
+                    <span class="badge">@list.NumberOfNotDoneItems</span>
+                    <a asp-action="Detail" asp-route-todoListId="@list.TodoListId">@list.Title</a>
+                }
+            </li>
+        }
+    </ul>
+</div>

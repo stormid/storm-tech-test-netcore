@@ -3,7 +3,7 @@ using Todo.Models.TodoItems;
 
 namespace Todo.EntityModelMappers.TodoItems
 {
-    public class TodoItemEditFieldsFactory
+    public static class TodoItemEditFieldsFactory
     {
         public static TodoItemEditFields Create(TodoItem todoItem)
         {

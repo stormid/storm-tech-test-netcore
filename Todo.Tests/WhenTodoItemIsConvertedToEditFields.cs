@@ -41,5 +41,11 @@ namespace Todo.Tests
         {
             Assert.Equal(srcTodoItem.Importance, resultFields.Importance);
         }
+
+        [Fact]
+        public void EqualRank()
+        {
+            Assert.Equal(srcTodoItem.Rank, resultFields.Rank);
+        }
     }
 }

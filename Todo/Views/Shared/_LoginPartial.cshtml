@@ -7,6 +7,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+
 @if (SignInManager.IsSignedIn(User))
 {
     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
@@ -19,10 +20,13 @@
                         var iu = await UserManager.GetUserAsync(User);
                         var emailAddress = await UserManager.GetEmailAsync(iu);
                         var gravatarhash = Gravatar.GetHash(emailAddress);
+ 
+                        var profileName = await Gravatar.GetProfileName(emailAddress);
+
                     }
 
                     <img src="https://www.gravatar.com/avatar/@gravatarhash?s=30" />
-                    @UserManager.GetUserName(User)
+                    @UserManager.GetUserName(User) @profileName
                 </a>
             </li>
             <li>

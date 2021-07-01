@@ -3,7 +3,7 @@ using Todo.Models.TodoItems;
 
 namespace Todo.EntityModelMappers.TodoItems
 {
-    public class TodoItemCreateFieldsFactory
+    public static class TodoItemCreateFieldsFactory
     {
         public static TodoItemCreateFields Create(TodoList todoList, string defaultResponsibleUserId)
         {

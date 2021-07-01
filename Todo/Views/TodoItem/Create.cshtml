@@ -27,13 +27,12 @@
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
 
-
             <div class="form-group">
                 <label asp-for="Importance"></label>
                 @Html.DropDownListFor(
                     m => m.Importance,
                     SelectListConvenience.ImportanceSelectListItems,
-                    new {@class="form-control"}
+                    new { @class = "form-control" }
                     )
                 <span asp-validation-for="Importance" class="text-danger"></span>
             </div>
@@ -43,7 +42,7 @@
                 @Html.DropDownListFor(
                     m => m.ResponsiblePartyId,
                     dbContext.UserSelectListItems(),
-                    new {@class="form-control"}
+                    new { @class = "form-control" }
                     )
                 <span asp-validation-for="ResponsiblePartyId" class="text-danger"></span>
             </div>

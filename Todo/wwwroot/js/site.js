@@ -35,8 +35,25 @@ function sortByRank(element) {
         sorted.forEach(e => document.querySelector("#toDoList").appendChild(e));
 }
 
-function SetRankApi() {
-    alert("test");
+function SetRankApi(todoItemId) {
+
+    var currentRank = document.getElementById('Rank').value;
+
+    var model = JSON.stringify({ rank: parseInt(currentRank), todoItemId: todoItemId });
+
+    $.ajax({
+        type: "POST",
+        url: '/api/TodoItem/',
+        data: model,
+        contentType: "application/json",
+        success: function (data) {
+            alert('Rank has been updated via the api')
+        },
+        error: function (data) {
+            alert('Something went wrong!')
+        }
+
+    });
 }
 
 

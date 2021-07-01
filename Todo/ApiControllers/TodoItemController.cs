@@ -21,13 +21,16 @@ namespace Todo.ApiControllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SetRank(int rank, int todoItemId)
+        public async Task<IActionResult> SetRank(RankSetModel model)
         {
-            var todoItem = dbContext.SingleTodoItem(todoItemId);
+            if (model.TodoItemId == 0)
+                return BadRequest();
+
+            var todoItem = dbContext.SingleTodoItem(model.TodoItemId);
 
             if (todoItem != null)
             {
-                todoItem.Rank = rank;
+                todoItem.Rank = model.Rank;
                 dbContext.Update(todoItem);
                 await dbContext.SaveChangesAsync();
             }               
@@ -35,6 +38,12 @@ namespace Todo.ApiControllers
                 return BadRequest();
 
             return Ok();
+        }
+
+        public class RankSetModel
+        {
+            public int Rank { get; set; }
+            public int TodoItemId { get; set; }
         }
     }
 }

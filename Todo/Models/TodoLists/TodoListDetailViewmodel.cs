@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Todo.Models.TodoItems;
 
 namespace Todo.Models.TodoLists
@@ -11,9 +12,11 @@ namespace Todo.Models.TodoLists
 
         public TodoListDetailViewmodel(int todoListId, string title, ICollection<TodoItemSummaryViewmodel> items)
         {
-            Items = items;
-            TodoListId = todoListId;
-            Title = title;
+            // Rationale: If sorting is happening here, try to prevent exceptions interfering with user
+            items      ??= new List<TodoItemSummaryViewmodel>();
+            Items      =   items.OrderBy(todoItem => todoItem.Importance).ToList();
+            TodoListId =   todoListId;
+            Title      =   title;
         }
     }
 }
